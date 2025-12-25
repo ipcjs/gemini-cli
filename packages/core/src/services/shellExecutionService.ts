@@ -645,12 +645,7 @@ export class ShellExecutionService {
             () =>
               new Promise<void>((resolve) => {
                 if (!decoder) {
-                  const encoding = getCachedEncodingForBuffer(data);
-                  try {
-                    decoder = new TextDecoder(encoding);
-                  } catch {
-                    decoder = new TextDecoder('utf-8');
-                  }
+                  decoder = new TextDecoder('utf-8');
                 }
 
                 outputChunks.push(data);
